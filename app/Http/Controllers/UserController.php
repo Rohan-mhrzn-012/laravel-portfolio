@@ -3,16 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    public function userpage() {
+        return view('user');
+    }
+
+
     public function index()
     {
-        //
+        $users = User::all(); // Fetch all users from the database
+        return view('user', compact('users')); // Pass $users to the view
     }
+
 
     /**
      * Show the form for creating a new resource.

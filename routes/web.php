@@ -14,7 +14,7 @@ Route::post('/register', [AuthController::class, 'register']);
 
 Route::get('/login', [AuthController::class, 'loginPage']);
 
-Route::get('/user' , [UserController::class, 'userpage']);
+Route::get('/user' , [UserController::class, 'index']);
 
 Route::get("/user_role", function(){
     return view("user_role");

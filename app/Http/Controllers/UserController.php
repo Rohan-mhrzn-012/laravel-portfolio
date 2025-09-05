@@ -10,11 +10,6 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function userpage() {
-        return view('user');
-    }
-
-
     public function index()
     {
         $users = User::all(); // Fetch all users from the database

@@ -3,6 +3,7 @@
 @section('content')
 <h1>Users</h1>
 <table class="table table-striped table-bordered align-middle" id="user_table">
+    @foreach($users as $user)
     <thead class="table-dark">
         <tr>
             <th>Name</th>
@@ -14,8 +15,8 @@
        {{-- <!--" <?php foreach ($users as $user): ?>" -->--}}
             <tr>
                 <input type="text" name="ids" value="id " hidden>
-                <td>{{-- <?php echo $user['fullname'] ?>--}}</td>
-                <td>{{-- <?php echo $user['email'] ?>--}}</td>
+                <td>{{ $user->fullname }}</td>
+                <td>{{ $user->email }}</td>
                 <td>
                     <a href="./index.php?page=edit-user&id=" class="btn btn-primary btn-sm me-1">
                         <i class="bi bi-pencil"></i> Edit
@@ -33,7 +34,7 @@
        {{-- <?php endforeach ?>--}}
     </tbody>
 </table>
-
+@endforeach
 
 <div class="modal fade" id="userDeleteModal" tabindex="-1" aria-labelledby="userDeleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">

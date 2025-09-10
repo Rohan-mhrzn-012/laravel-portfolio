@@ -80,7 +80,7 @@
         <tbody>
             @foreach ($data as $datas)
                 <tr>
-                    <td>Pradeep</td>
+                    <td>{{$data->user->username}}</td>
                     <td>{{ $datas->title }}</td>
                     <td>{{ $datas->organization }}</td>
                     <td>{{ $datas->location }}</td>

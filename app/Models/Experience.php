@@ -14,4 +14,8 @@ class Experience extends Model
         'location',
         'start_date',
         'end_date'];
+
+        public function user(){
+            return $this->belongsTo(User::class);
+        }
 }

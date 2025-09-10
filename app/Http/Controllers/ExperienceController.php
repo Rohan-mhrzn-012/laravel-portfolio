@@ -10,10 +10,11 @@ class ExperienceController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id)
     {
         //
-        $data = Experience::all();
+        // $data = Experience::all();
+        $experience = Experience::with('user')->findOrFail($id);
         return view('experience', compact('data'));
     }
 

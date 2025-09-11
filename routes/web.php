@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -19,6 +20,7 @@ Route::get('/user' , [UserController::class, 'index']);
 Route::get("/user_role", function(){
     return view("user_role");
 });
+
 Route::get('/skills', function () {
     return view('skills');
 });
@@ -34,3 +36,9 @@ Route::get('/projects', function () {
 Route::get('/admin', function(){
     return view('admin');
 });
+
+Route::get('/user_post', [PostController::class, 'withPosts'])->name('user_post');
+
+Route::get('/post_create', [PostController::class, 'index'] );
+
+Route::post('/post_create', [PostController::class, 'store'])->name("posts.store");

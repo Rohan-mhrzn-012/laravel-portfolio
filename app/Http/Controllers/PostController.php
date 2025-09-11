@@ -1,21 +1,25 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Post; 
+use App\Models\User; 
 use Illuminate\Http\Request;
-use App\Models\User;
 
-class UserController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $users = User::all(); // Fetch all users from the database
-        return view('user', compact('users')); // Pass $users to the view
-        
- 
+        $users = User::all();
+        return view('create_post', compact('users'));
+    }
+
+    public function withPosts()
+    {
+        $upost = User::with('posts')->get();
+        return view('user_post', compact('upost'));
     }
     /**
      * Show the form for creating a new resource.
@@ -28,9 +32,21 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+      public function store(Request $request)
     {
-        //
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'title'   => 'required|string|max:255',
+            'content' => 'required|string',
+        ]);
+
+        Post::create([
+            'user_id' => $request->user_id,
+            'title'   => $request->title,
+            'content' => $request->content,
+        ]);
+
+        return redirect()->route('user_post');
     }
 
     /**

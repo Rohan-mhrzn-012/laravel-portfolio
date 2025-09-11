@@ -1,3 +1,6 @@
+@Extends('admin')
+
+@section('content')
 <h1>User Roles</h1>
 <table class="table table-striped table-bordered align-middle">
     <thead class="table-dark">
@@ -32,3 +35,4 @@
 </table>
 
 <script src="/../collab-training/public/js/deleteUser.js"></script>
+@endsection

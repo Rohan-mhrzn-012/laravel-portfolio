@@ -1,9 +1,9 @@
+@extends('admin')
 
-<head>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-</head>
+@section('content')
 <h1>Users</h1>
 <table class="table table-striped table-bordered align-middle" id="user_table">
+    
     <thead class="table-dark">
         <tr>
             <th>Name</th>
@@ -12,11 +12,11 @@
         </tr>
     </thead>
     <tbody>
-       {{-- <!--" <?php foreach ($users as $user): ?>" -->--}}
+        @foreach($users as $user)
             <tr>
                 <input type="text" name="ids" value="id " hidden>
-                <td>{{-- <?php echo $user['fullname'] ?>--}}</td>
-                <td>{{-- <?php echo $user['email'] ?>--}}</td>
+                <td>{{ $user->fullname }}</td>
+                <td>{{ $user->email }}</td>
                 <td>
                     <a href="./index.php?page=edit-user&id=" class="btn btn-primary btn-sm me-1">
                         <i class="bi bi-pencil"></i> Edit
@@ -31,7 +31,7 @@
                    {{-- <?php endif; ?>--}}
                 </td>
             </tr>
-       {{-- <?php endforeach ?>--}}
+            @endforeach
     </tbody>
 </table>
 
@@ -53,4 +53,4 @@
         </div>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+@endsection

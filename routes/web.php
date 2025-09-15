@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SkillController;
 use App\Http\Middleware\AuthCheckMiddleware;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -43,3 +45,13 @@ Route::group(['middleware' => ['auth']], function () {
         return view('projects');
     });
 });
+
+Route::get('/admin', function(){
+    return view('admin');
+});
+
+Route::get('/user_post', [PostController::class, 'withPosts'])->name('user_post');
+
+Route::get('/post_create', [PostController::class, 'index'] );
+
+Route::post('/post_create', [PostController::class, 'store'])->name("posts.store");

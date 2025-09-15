@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('author_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('title');
             $table->text('content');
             $table->timestamps();
 
-            $table->foreign('author_id')
+            $table->foreign('user_id')
                     ->references('id')
-                    ->on('authors')
+                    ->on('users')
                     ->onDelete('cascade');
         });
     }

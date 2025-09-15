@@ -13,13 +13,13 @@
 
 <body>
     <header>
-        @include('layout.navbar')
+        @include('layout.admin.partials.navbar')
     </header>
     <aside>
-        @include('layout.sidebar')
+        @include('layout.admin.partials.sidebar')
     </aside>
     <div style="padding-top: 70px; padding-left:250px;">
-        @yield('content')
+        @yield('body')
     </div>
 
 </body>

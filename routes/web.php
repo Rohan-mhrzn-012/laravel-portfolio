@@ -7,7 +7,9 @@ use App\Http\Controllers\SkillController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,7 +23,9 @@ Route::group(['middleware' => ['guest']], function () {
     Route::post('/login', [AuthController::class, 'login']);
 });
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group([ 'prefix' => 'admin','middleware' => ['auth']], function () {
+    Route::get('dashboard', [DashboardController::class,'index'])->name('dashboard');
+    
     Route::get('/user' , function(){
         return view('user');
     });

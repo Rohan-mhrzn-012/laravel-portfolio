@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Models;
+use App\Models\Student;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Phone extends Model
+{
+    //
+    protected $fillable=[
+        'student_id',
+        'phone_number'
+    ];
+
+    public function student(){
+        return $this->belongsTo(Student::class);
+    }
+}

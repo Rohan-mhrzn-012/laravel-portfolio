@@ -18,7 +18,7 @@
     <aside>
         @include('layout.partials.sidebar')
     </aside>
-    <div style="padding-top: 70px; padding-left:300px;">
+    <div style="padding-top: 70px; padding-left:250px;">
         @yield('body')
     </div>
 

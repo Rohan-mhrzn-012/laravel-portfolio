@@ -48,7 +48,7 @@
 
     <div class="mb-3">
         <label for="skill_name" class="form-label">Skill Name:</label>
-        <input type="text" class="form-control" name="skill_name" id="skill_name" value="{{old('skill_name')}}">
+        <input type="text" class="form-control" name="skill_name" id="skill_name" value="{{old('skill_name')}}" placeholder="Enter the skill name">
     </div>
 
     <div class="mb-3">

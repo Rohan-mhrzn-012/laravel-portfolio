@@ -25,7 +25,7 @@
             <select name="user_id" class="form-select" required>
               <option value="">-- Choose User --</option>
               @foreach($users as $user)
-                <option value="{{ $user->id }}">{{ $user->name }} ({{ $user->email }})</option>
+                <option value="{{ $user->id }}">{{ $user->fullname }} ({{ $user->email }})</option>
               @endforeach
             </select>
           </div>

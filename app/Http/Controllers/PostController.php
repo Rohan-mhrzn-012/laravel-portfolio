@@ -13,13 +13,13 @@ class PostController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('create_post', compact('users'));
+        return view('users.create_post', compact('users'));
     }
 
     public function withPosts()
     {
         $upost = User::with('posts')->get();
-        return view('user_post', compact('upost'));
+        return view('users.user_post', compact('upost'));
     }
     /**
      * Show the form for creating a new resource.
@@ -46,7 +46,7 @@ class PostController extends Controller
             'content' => $request->content,
         ]);
 
-        return redirect()->route('user_post');
+        return redirect()->route('users.user_post');
     }
 
     /**

@@ -35,7 +35,7 @@ class AuthController extends Controller
             return redirect()->back()->with(['error'=> 'password not correct']);
         }
 
-        return redirect('/skills')->with(['success' => "successfully logged in"]);
+        return redirect('/admins')->with(['success' => "successfully logged in"]);
     }
 
     public function register(Request $request){

@@ -18,7 +18,7 @@
     <br><br>
     <button type="submit">Login</button>
     <p>Don't have an account? Create a new one.</p>
-    <a id="new_user" href="register.php">Create a new account</a>
+    <a id="new_user" href="{{route('register')}}">Create a new account</a>
     
   </form>
   @endsection

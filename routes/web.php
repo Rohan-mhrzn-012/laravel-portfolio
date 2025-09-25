@@ -82,3 +82,4 @@ Route::put('/courses/edit/{id}',[CourseController::class,'update'])->name('cours
 //API
 Route::get('/dog/random',[ApiController::class,'randomImage']);
 
+Route::get('/cats',[ApiController::class,'catImage']);

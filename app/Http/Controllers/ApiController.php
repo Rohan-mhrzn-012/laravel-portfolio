@@ -8,24 +8,44 @@ use Illuminate\Support\Facades\Http;
 class ApiController extends Controller
 {
     //
-    public function randomImage(){
+    public function randomImage()
+    {
         $response = Http::withoutVerifying()->get('https://dog.ceo/api/breeds/image/random');
-            if($response->successful()){
-                $data=$response->json();
-                $imageUrl=$data['message'];
+        if ($response->successful()) {
+            $data = $response->json();
+            $imageUrl = $data['message'];
 
-                return view('dogs.random',compact('imageUrl'));
-            }
-            return view('dogs.random')->with('error','Failed to load image');
+            return view('dogs.random', compact('imageUrl'));
+        }
+        return view('dogs.random')->with('error', 'Failed to load image');
     }
 
-    public function catImage(){
-        $response=Http::withoutVerifying()->get('https://api.thecatapi.com/v1/images/search');
-            if($response->successful()){
-                $data=$response->json();
-                $url=$data[0]['url']??null;
+    public function catImage()
+    {
+        $response = Http::withoutVerifying()->get('https://api.thecatapi.com/v1/images/search');
+        if ($response->successful()) {
+            $data = $response->json();
+            $url = $data[0]['url'] ?? null;
 
-                return view('cats.index',compact('url'));
-            }
+            return view('cats.index', compact('url'));
+        }
+    }
+
+    public function createCat()
+    {
+        $response = Http::withoutVerifying()->post(
+            'https://api.thecatapi.com/v1/votes',
+            [
+                "image_id" => "abc123",
+                "value"    => 1,          
+            ]
+        );
+
+        if ($response->successful()) {
+            $data = $response->json();
+            return response()->json($data);
+        } else {
+            return response()->json(['error' => 'API request failed'], 500);
+        }
     }
 }

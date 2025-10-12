@@ -88,7 +88,7 @@
                     <td>now</td>
                     <td>now</td>
                     <td>
-                        <a href="" type="button" class="btn btn-info">View</a>
+                        <a href="{{route('skills.show', $value->id)}}" type="button" class="btn btn-info">View</a>
                         <a href="" class="btn btn-success">Edit</a>
                         <a href="" class="btn btn-danger">Delete</a>
                     </td>

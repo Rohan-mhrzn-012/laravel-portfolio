@@ -53,6 +53,8 @@ class SkillController extends Controller
     public function show(string $id)
     {
         //
+        $view=Skills::findOrFail($id);
+        return view('skills.view',compact('view'));
     }
 
     /**

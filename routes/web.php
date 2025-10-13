@@ -36,6 +36,7 @@ Route::get('/skills', [SkillController::class,'index'])->name('skills');
 Route::get('/skills/create', [SkillController::class,'create_form'])->name('skills.create');
 Route::post('/skills/create',[SkillController::class,'store']);
 Route::get('/skills/view/{id}', [SkillController::class,'show'])->name('skills.show');
+Route::get('/skills/edit/{id}',[SkillController::class,'edit'])->name('skills.edit');
 
 //Experience Routes
 Route::get('/experience', [ExperienceController::class,'index'])->name('experience');

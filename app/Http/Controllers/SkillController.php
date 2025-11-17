@@ -33,18 +33,18 @@ class SkillController extends Controller
     {
         //
         $request->validate([
-            'skill_name'=>'required|string|max:255',
-            'skill_level'=>'required|in:beginner,intermediate,expert',
-            'skill_category'=>'required|in:programming,cloud computing,cybersecurity,networking,hardware,machine learning/AI,data mining,database management',
+            'skill_name' => 'required|string|max:255',
+            'skill_level' => 'required|in:beginner,intermediate,expert',
+            'skill_category' => 'required|in:programming,cloud computing,cybersecurity,networking,hardware,machine learning/AI,data mining,database management',
         ]);
 
         Skills::create([
-            'skill_name'=>$request->skill_name,
-            'skill_category'=>$request->skill_category,
-            'skill_level'=>$request->skill_level,
+            'skill_name' => $request->skill_name,
+            'skill_category' => $request->skill_category,
+            'skill_level' => $request->skill_level,
         ]);
 
-        return redirect('/skills')->with(['message'=>"success on adding new skill"]);
+        return redirect('/skills')->with(['message' => "success on adding new skill"]);
     }
 
     /**
@@ -53,8 +53,8 @@ class SkillController extends Controller
     public function show(string $id)
     {
         //
-        $view=Skills::findOrFail($id);
-        return view('skills.view',compact('view'));
+        $view = Skills::findOrFail($id);
+        return view('skills.view', compact('view'));
     }
 
     /**
@@ -63,8 +63,8 @@ class SkillController extends Controller
     public function edit(string $id)
     {
         //
-        $edit=Skills::findOrFail($id);
-        return view('skills.edit',compact('edit'));
+        $edit = Skills::findOrFail($id);
+        return view('skills.edit', compact('edit'));
     }
 
     /**
@@ -73,6 +73,19 @@ class SkillController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $data = Skills::findOrFail($id);
+        $request->validate([
+            'skill_name' => 'required|string',
+            'level' => 'required',
+            'category' => 'required'
+        ]);
+        $data->update([
+            'skill_name' => $request->skill_name,
+            'skill_level' => $request->level,
+            'skill_category' => $request->category,
+        ]);
+
+        return redirect()->route('skills');
     }
 
     /**

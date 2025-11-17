@@ -1,7 +1,7 @@
 @extends('layout.admin')
 @section('body')
 <h1>Edit {{$edit->skill_name}}'s data</h1>
-    <form action="" enctype="multipart/form-data" method="POST">
+    <form action="{{route('skills.update',$edit->id)}}" enctype="multipart/form-data" method="POST">
         @csrf
         @method('PUT')
         <div class="mb-3">

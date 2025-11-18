@@ -12,6 +12,9 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\PortfolioController;
 use Illuminate\Support\Facades\Route;
 
+use App\Models\User;
+use App\Jobs\LogUserRegistered;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -94,3 +97,18 @@ Route::prefix('portfolio')->group(function(){
      Route::get('/experiences', [PortfolioController::class, 'experiences']);
 });
 
+
+Route::get('/test-queue', function () {
+    $user = User::create([
+        'fullname' => 'Pooja Manandhar',
+        'username'=>'sister',
+        'email' => 'puzza@yahoo.com',
+        'password' => bcrypt('password')
+    ]);
+
+    LogUserRegistered::dispatch($user->id);
+
+    // LogUserRegistered::dispatch($user->id)->delay(now()->addSeconds(5));
+
+    return "Queue dispatched! Check your laravel log.";
+});

@@ -11,6 +11,7 @@ use App\Http\Controllers\ProgrammerController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\PortfolioController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Cache;
 
 use App\Models\User;
 use App\Jobs\LogUserRegistered;
@@ -111,4 +112,12 @@ Route::get('/test-queue', function () {
     // LogUserRegistered::dispatch($user->id)->delay(now()->addSeconds(5));
 
     return "Queue dispatched! Check your laravel log.";
+});
+
+
+//redis
+Route::get('/redis-test', function () {
+    Cache::store('redis')->put('name', 'Pradeep', 10);
+
+    return Cache::store('redis')->get('name');
 });

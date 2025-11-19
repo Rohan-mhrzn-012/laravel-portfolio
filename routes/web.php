@@ -121,3 +121,7 @@ Route::get('/redis-test', function () {
 
     return Cache::store('redis')->get('name');
 });
+
+Route::get('/ref', function(){
+    return view('frontend.index');
+});

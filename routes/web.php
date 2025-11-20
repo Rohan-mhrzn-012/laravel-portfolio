@@ -11,26 +11,41 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AgentController;
+use App\Jobs\welcomejob;
+
+Route::get('/cat-vote', function () {
+    return view('catapi');
+});
+
+Route::get('/run', function(){
+    welcomejob::dispatch();
+    return 'working';
+});
+
+Route::get('/portfolio',function(){
+    return view('Portfolio.portfolio');
+})->name('home');
+
+Route::get('/portprojects',function(){
+    return view('Portfolio.projects');
+})->name('projectss');
 
 Route::get('/agents', [AgentController::class, 'index'])->name('agents.index');
-
-
-
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::group(['middleware' => ['guest']], function () {
+Route::group(['middleware' => ['guest']], function () {
     Route::get('/register', [AuthController::class, 'registerPage'])->name('register');
     Route::post('/register', [AuthController::class, 'register']);
 
     Route::get('/login', [AuthController::class, 'loginPage'])->name('login');
     Route::post('/login', [AuthController::class, 'login']);
-// });
+});
 
 
-Route::group(['middleware' => ['auth']], function () {
+// Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/admins', function () {
         return view('layout.admin');
@@ -93,4 +108,4 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin', function () {
         return view('layout.admin');
     });
-});
+// });

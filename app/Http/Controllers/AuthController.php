@@ -37,6 +37,31 @@ class AuthController extends Controller
 
         return redirect('/admins')->with(['success' => "successfully logged in"]);
     }
+//     public function login(Request $request)
+// {
+//     $validated = $request->validate([
+//         'email' => 'required|email',
+//         'password' => 'required'
+//     ]);
+
+//     // Find user
+//     $user = User::where('email', $validated['email'])->first();
+//     if (!$user) {
+//         return response()->json(['message' => 'User not found'], 404);
+//     }
+
+//     // Attempt login
+//     if (!Auth::attempt($validated)) {
+//         return response()->json(['message' => 'Password not correct'], 401);
+//     }
+
+//     // Success
+//     return response()->json([
+//         'message' => 'Successfully logged in',
+//         'user' => Auth::user()
+//     ]);
+// }
+
 
     public function register(Request $request){
         $request->validate([

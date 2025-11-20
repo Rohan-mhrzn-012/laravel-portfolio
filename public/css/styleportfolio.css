@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: rgb(34, 32, 32);
+    color: rgb(246, 251, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nave,
+.hero,
+#about,
+#skills,
+#projects,
+#contact {
+    background: rgb(54, 53, 53);
+    width: 70vw;
+    border-radius: 10px;
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nave {
+    margin-top: 30px;
+    height: 70px;
+    padding: 0 20px;
+}
+
+.nav1 {
+    margin-right: 40px;
+}
+
+.nave a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.nave a:hover {
+    background-color: rgb(34, 44, 53);
+}
+
+.logo {
+    background: url(../images/portimage/logo.png) no-repeat center/cover;
+    width: 150px;
+    height: 150px;
+}
+
+.hero {
+    height: 380px;
+}
+
+.pic {
+    background: url(../images/portimage/photo.jpg) no-repeat center/cover;
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    margin: 0 100px;
+}
+
+.head {
+    margin-left: 150px;
+    text-align: end;
+}
+
+.head h1 {
+    font-size: 90px;
+}
+
+.head p {
+    font-size: 40px;
+}
+
+
+#about {
+    height: 380px;
+}
+
+.pic1 {
+    background: url(../images/portimage/img1.png) no-repeat center/cover;
+    width: 500px;
+    height: 380px;
+    border-radius: 10px;
+}
+
+.text {
+    margin: 0 50px 100px;
+    font-size: 20px;
+}
+
+.text h2 {
+    margin-bottom: 30px;
+}
+
+#skills {
+    height: 480px;
+    justify-content: center;
+}
+
+.skills {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: center;
+    gap: 20px;
+}
+
+#lts {
+    list-style: decimal;
+    margin: 90px;
+}
+
+#lts h2 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+#lts li {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+
+#projects {
+    height: 380px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 20px;
+}
+
+.pic8 {
+    width: 450px;
+    height: 450px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+
+button {
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: rgb(80, 35, 194);
+    color: aliceblue;
+}
+
+button:hover {
+    background-color: #6894e7;
+}
+
+#next, #prev {
+    width: 5px;
+    height: 40px;
+    background-color: transparent;
+}
+
+#contact {
+    height: 400px;
+}
+
+#contacts {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    padding: 100px;
+}
+
+input,
+form textarea {
+    background-color: transparent;
+    border: none;
+    color: white;
+    outline: none;
+    width: 500px;
+    border-bottom: 1px solid black;
+    font-size: 25px;
+}
+
+input[type="text"] {
+    display: inline-block;
+    width: 246px;
+}
+
+.gitss {
+    font-size: 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    padding: 5px;
+}
+
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    margin-top: 20px;
+}

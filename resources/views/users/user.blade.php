@@ -63,8 +63,8 @@
     </tbody>
 </table>
 <!-- pagination -->
-<div class="d-flex justify-content-end">
-    {{ $users->links('pagination::bootstrap-5') }}
+<div>
+    {{ $users->links() }}
 </div>
 
 <div class="modal fade" id="userDeleteModal" tabindex="-1" aria-labelledby="userDeleteModalLabel" aria-hidden="true">
